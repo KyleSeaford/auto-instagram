@@ -173,5 +173,4 @@ def main_sequence():
     postMeme()
     print("Meme posted")
 
-
 main_sequence()
