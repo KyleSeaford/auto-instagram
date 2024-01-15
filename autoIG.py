@@ -54,7 +54,7 @@ def ChoseMeme(random_meme_name):
     pg.moveTo(702, 43, duration = 0)
     time.sleep(1)
     pg.click()
-    pg.typewrite("C:\\Users\\win10_64\\Desktop\\auto-main\\memes")
+    pg.typewrite("C:\\Users\\xbox\\Desktop\\nerd\\python\\memes")
     pg.press("enter")
     pg.moveTo(318, 982, duration = 0)
     pg.click()

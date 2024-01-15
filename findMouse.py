@@ -1,6 +1,8 @@
 import time
 import pyautogui
 
+
+
 def findMouse():
     # find screen size
     print(pyautogui.size())
