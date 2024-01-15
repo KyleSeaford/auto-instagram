@@ -1,15 +1,21 @@
 import time
 import pyautogui
+import logging
 
+logging.basicConfig(level=logging.DEBUG,  
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    filename='auto.log', filemode='w')
 
 
 def findMouse():
     # find screen size
-    print(pyautogui.size())
+    logging.info(pyautogui.size())
     time.sleep(4)
 
     # find mouse position
-    print(pyautogui.position())
+    logging.info(pyautogui.position())
 
+
+logging.info("Script started")
 findMouse()
 

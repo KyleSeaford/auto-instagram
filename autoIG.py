@@ -4,6 +4,12 @@ import webbrowser
 import os
 import random
 import datetime
+import logging
+
+logging.basicConfig(level=logging.DEBUG,  
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    filename='Z:\\logs\\auto.log', filemode='w')
+
 
 #defaultAnswer
 def questionString(question, defaultAnswer):
@@ -31,7 +37,7 @@ def select_random_meme(folder_path):
     image_files = [f for f in all_files if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
     
     if not image_files:
-        print("No meme images found in the folder.")
+        logging.error("No meme images found in the folder.")
         return None
     
     random_meme = random.choice(image_files)
@@ -43,7 +49,7 @@ def meme():
 
     random_meme_name = select_random_meme(meme_folder_path)
     if random_meme_name:
-        print(f"Selected meme: {random_meme_name}")
+        logging.info(f"Selected meme: {random_meme_name}")
         ChoseMeme(random_meme_name)
 
 #chose meme
@@ -92,6 +98,11 @@ def WriteCaption():
         "My code isn't messy; it's just creatively organized!"
         "Sleep? I'll do that after this next commit."
         "Coffee: Fueling developers since the beginning of time."
+        "I don't always test my code, but when I do, I do it in production."
+        "When you're coding and you realize you've been talking to yourself for the past 20 minutes."
+        "what do you mean, 'it works on my machine'?"
+        "how did this ever work?"
+        "I'm not anti-social; I'm just not user friendly."
     ]
     
     hashtags = [
@@ -99,7 +110,13 @@ def WriteCaption():
         "#ProgrammerLife", "#ProgrammingHumor", "#ProgrammingJokes", 
         "#ProgrammerHumor", "#SoftwareDeveloper", "#SoftwareEngineer", 
         "#SoftwareDevelopment", "#SoftwareEngineerLife", "#SoftwareEngineerProblems", 
-        "#SoftwareEngineerHumor", "#SoftwareEng" ,"#SoftwareEngineering", "#programming", "joke"
+        "#SoftwareEngineerHumor", "#SoftwareEng" ,"#SoftwareEngineering", 
+        "#programming", "#joke", "#funny", "#coding", "#programmer", "#developer", 
+        "#codinglife", "#webdeveloper", "#webdevelopment", 
+        "#webdev", "#webdesign", "#webdesigner", "#webdesigning", 
+        "#webdesignlife", "#webdesignerlife", "#webdesigners", 
+        "#webdesignerslife", "#webdesignersofinstagram", "#webdesignersofinsta", 
+        "#webdesignersoftheworld", "#webdesignersoftheworld", "#webdesignersoftheworldunite"
     ]
 
     random_caption = random.choice(captions)
@@ -107,15 +124,18 @@ def WriteCaption():
     random_hashtag2 = random.choice(hashtags)
     random_hashtag3 = random.choice(hashtags)
 
+    logging.info("Choosing caption and hashtags")
     # Write the caption
     pg.moveTo(1211, 327, duration=0)
     pg.click()
-    pg.typewrite(f"{random_caption} ")
+    pg.typewrite(f"{random_caption}")
+    logging.info({random_caption})
     time.sleep(1)
 
     # Write the hashtag
     pg.press("enter")
     pg.typewrite(f"{random_hashtag}")
+    logging.info({random_hashtag})
     pg.moveTo(1211, 552, duration=0)
     time.sleep(1.5)
     pg.click()
@@ -123,6 +143,7 @@ def WriteCaption():
     # Write the hashtag2
     time.sleep(1)
     pg.typewrite(f"{random_hashtag2}")
+    logging.info({random_hashtag2})
     pg.moveTo(1211, 552, duration=0)
     time.sleep(1.5)
     pg.click()
@@ -130,6 +151,7 @@ def WriteCaption():
     # Write the hashtag3
     time.sleep(1)
     pg.typewrite(f"{random_hashtag3}")
+    logging.info({random_hashtag3})
     pg.moveTo(1211, 552, duration=0)
     time.sleep(1.5)
     pg.click()
@@ -143,34 +165,40 @@ def WriteCaption():
 
 #post meme
 def postMeme():
-    pg.moveTo(1422, 227, duration=0)
+    #pg.moveTo(1422, 227, duration=0)
     pg.click()
 
     #close window
     time.sleep(1)
     pg.moveTo(1875, 148, duration=0)
+    time.sleep(0.5)
     pg.click()
     pg.moveTo(1895, 16, duration=0)
+    time.sleep(0.5)
     pg.click()
 
 #main code
 def main_sequence():
     openInstagram()
-    print("Instagram opened")
+    logging.info("Instagram opened")
     time.sleep(1)
     OpenPost()
-    print("Post opened")
+    logging.info("Post menu opened")
     time.sleep(1)
     meme()
-    print("Meme selected")
+    logging.info("Meme selected")
     time.sleep(1)
     lodeMeme()
-    print("Meme loaded")
+    logging.info("Meme loaded") 
     time.sleep(1)
     WriteCaption()
-    print("Caption written")
+    logging.info("Caption written")
     time.sleep(1)
     postMeme()
-    print("Meme posted")
+    logging.info("Meme posted")
+    logging.critical("Script ended")
 
+
+logging.info("Script running at " + str(datetime.datetime.now()))
+logging.info(f"The screen size is: {pg.size()}")
 main_sequence()
