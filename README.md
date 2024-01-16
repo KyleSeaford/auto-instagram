@@ -16,4 +16,5 @@
 
 ## to run code
 - in main.py change line `48` `meme_folder_path = "memes"` too the correct folder path 
-- in main.py change line `63` `pg.typewrite("C:\\Users\\xbox\\Desktop\\nerd\\python\\memes")` too the correct folder path 
+- in main.py change line `63` `pg.typewrite("C:\\Users\\xbox\\Desktop\\nerd\\python\\memes")` too the correct folder path
+- in main.py change line `11` `filename='Z:\\logs\\auto.log', filemode='w')` too `auto.log` - this puts the log on your local machine
