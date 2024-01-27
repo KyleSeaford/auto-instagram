@@ -6,13 +6,15 @@ import random
 import datetime
 import logging
 
+from emailKYLE import sendlogTOkyle
+
 #set wait time
 wait = 5
 
 #set logging
 logging.basicConfig(level=logging.DEBUG,  
     format='%(asctime)s - %(levelname)s - %(message)s',
-    filename='Z:\\logs\\auto.log', filemode='w')
+    filename='auto.log', filemode='w')
 
 #defaultAnswer
 def questionString(question, defaultAnswer):
@@ -28,9 +30,10 @@ def openInstagram():
 
 #open post
 def OpenPost():
-    pg.moveTo(99, 598, duration = 1)
+    pg.moveTo(31, 584, duration = 0)
     pg.click()
-    pg.moveTo(129, 634, duration = 1)
+    time.sleep(2)
+    pg.moveTo(138, 623, duration = 0)
     pg.click()
 
 #select meme
@@ -57,31 +60,31 @@ def meme():
 
 #chose meme
 def ChoseMeme(random_meme_name):
-    time.sleep(wait)
-    pg.moveTo(936, 674, duration = 1)
+    time.sleep(1)
+    pg.moveTo(520, 510, duration = 1)
     pg.click()
-    pg.moveTo(702, 43, duration = 1)
-    time.sleep(wait)
+    pg.moveTo(485, 47, duration = 1)
+    time.sleep(1)
     pg.click()
-    pg.typewrite("C:\\Users\\xbox\\Desktop\\nerd\\python\\memes")
+    pg.typewrite("C:\\Users\\win10_64\\Desktop\\memes")
     pg.press("enter")
-    pg.moveTo(318, 982, duration = 1)
+    pg.moveTo(469, 667, duration = 1)
     pg.click()
-    time.sleep(wait)
+    time.sleep(1)
     pg.typewrite(random_meme_name)
-    time.sleep(wait)
+    time.sleep(1)
     pg.press("enter")
 
 #load meme
 def lodeMeme():
-    pg.moveTo(634, 917, duration = 1)
+    pg.moveTo(336, 609, duration = 1)
     pg.click()
-    pg.moveTo(675, 716, duration = 1)
+    pg.moveTo(372, 396, duration = 1)
     pg.click()
-    pg.moveTo(1269, 232, duration = 1)
+    pg.moveTo(675, 227, duration = 1)
     pg.click()
-    time.sleep(0.5)
-    pg.moveTo(1441, 228, duration = 1)
+    time.sleep(1)
+    pg.moveTo(847, 227, duration = 1)
     pg.click()
 
 #write caption
@@ -175,74 +178,74 @@ def WriteCaption():
 
     logging.info("Choosing caption and hashtags")
     # Write the caption
-    pg.moveTo(1211, 327, duration=1)
+    pg.moveTo(576, 322, duration=0)
     pg.click()
     pg.typewrite(f"{random_caption}")
     logging.info({random_caption})
-    time.sleep(wait)
+    time.sleep(1)
 
     # Write the hashtag
     pg.press("enter")
     pg.typewrite(f"{random_hashtag}")
     logging.info({random_hashtag})
-    pg.moveTo(1211, 552, duration=1)
-    time.sleep(wait)
+    pg.moveTo(599, 548, duration=0)
+    time.sleep(1.5)
     pg.click()
     
     # Write the hashtag2
-    time.sleep(wait)
+    time.sleep(1)
     pg.typewrite(f"{random_hashtag2}")
     logging.info({random_hashtag2})
-    pg.moveTo(1211, 552, duration=1)
-    time.sleep(wait)
+    pg.moveTo(599, 548, duration=0)
+    time.sleep(1.5)
     pg.click()
 
     # Write the hashtag3
-    time.sleep(wait)
+    time.sleep(1)
     pg.typewrite(f"{random_hashtag3}")
     logging.info({random_hashtag3})
-    pg.moveTo(1211, 552, duration=1)
-    time.sleep(wait)
+    pg.moveTo(599, 548, duration=0)
+    time.sleep(1.5)
     pg.click()
 
     # Write the disclaimer
-    time.sleep(wait)
-    pg.moveTo(1262, 429, duration=1)
-    time.sleep(wait)
+    time.sleep(1)
+    pg.moveTo(818, 454, duration=0)
+    time.sleep(0.5)
     pg.press("enter")
-    pg.typewrite(f"This post was made and uploaded by a python bot :D")
+    pg.typewrite("This post was made and uploaded by a python bot :D")
 
 #post meme
 def postMeme():
-    pg.moveTo(1422, 227, duration=1)
+    pg.moveTo(840, 231, duration=0)
     pg.click()
 
     #close window
-    time.sleep(wait)
-    pg.moveTo(1875, 148, duration=1)
-    time.sleep(wait)
+    time.sleep(1)
+    pg.moveTo(975, 145, duration=0)
+    time.sleep(2)
     pg.click()
-    pg.moveTo(1895, 16, duration=1)
-    time.sleep(wait)
+    pg.moveTo(1007, 19, duration=0)
+    time.sleep(1)
     pg.click()
 
 #main code
 def main_sequence():
     openInstagram()
     logging.info("Instagram opened")
-    time.sleep(wait)
+    time.sleep(1)
     OpenPost()
     logging.info("Post menu opened")
-    time.sleep(wait)
+    time.sleep(1)
     meme()
     logging.info("Meme selected")
-    time.sleep(wait)
+    time.sleep(1)
     lodeMeme()
     logging.info("Meme loaded") 
-    time.sleep(wait)
+    time.sleep(1)
     WriteCaption()
     logging.info("Caption written")
-    time.sleep(wait)
+    time.sleep(1)
     postMeme()
     logging.info("Meme posted")
     logging.critical("Script ended")
@@ -251,3 +254,6 @@ def main_sequence():
 logging.info("Script running at " + str(datetime.datetime.now()))
 logging.info(f"The screen size is: {pg.size()}")
 main_sequence()
+logging.info("Script ended at:  " + str(datetime.datetime.now()))
+sendlogTOkyle()
+time.sleep(5)
