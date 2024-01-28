@@ -27,6 +27,7 @@ def questionString(question, defaultAnswer):
 def openInstagram():
     webbrowser.open('https://www.instagram.com/')
     time.sleep(wait)
+    pg.moveTo(949, 715, duration=1)                  #notification box close
 
 #open post
 def OpenPost():
