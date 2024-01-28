@@ -249,7 +249,6 @@ def main_sequence():
     time.sleep(1)
     postMeme()
     logging.info("Meme posted")
-    logging.critical("Script ended")
 
 
 logging.info("Script running at " + str(datetime.datetime.now()))
