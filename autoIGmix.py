@@ -6,7 +6,7 @@ import random
 import datetime
 import logging
 
-from emailKYLE import sendlogTOkyle
+#from emailKYLE import sendlogTOkyle
 
 #set wait time
 wait = 5
@@ -27,7 +27,8 @@ def questionString(question, defaultAnswer):
 def openInstagram():
     webbrowser.open('https://www.instagram.com/')
     time.sleep(wait)
-    pg.moveTo(949, 715, duration=1)                  #notification box close
+    pg.screenshot("screenshots/openInstergram.png")
+    #pg.moveTo(949, 715, duration=1)                                #notification box close
 
 #open post
 def OpenPost():
@@ -36,6 +37,7 @@ def OpenPost():
     time.sleep(2)
     pg.moveTo(138, 623, duration = 0)
     pg.click()
+    pg.screenshot("screenshots/postopend.png")
 
 #select meme
 def select_random_meme(folder_path):
@@ -64,6 +66,7 @@ def ChoseMeme(random_meme_name):
     time.sleep(1)
     pg.moveTo(520, 510, duration = 1)
     pg.click()
+    pg.screenshot("screenshots/1.png")
     pg.moveTo(485, 47, duration = 1)
     time.sleep(1)
     pg.click()
@@ -71,22 +74,28 @@ def ChoseMeme(random_meme_name):
     pg.press("enter")
     pg.moveTo(469, 667, duration = 1)
     pg.click()
+    pg.screenshot("screenshots/2.png")
     time.sleep(1)
     pg.typewrite(random_meme_name)
     time.sleep(1)
     pg.press("enter")
+    pg.screenshot("screenshots/3.png")
 
 #load meme
 def lodeMeme():
     pg.moveTo(336, 609, duration = 1)
     pg.click()
+    pg.screenshot("screenshots/4.png")
     pg.moveTo(372, 396, duration = 1)
     pg.click()
+    pg.screenshot("screenshots/5.png")
     pg.moveTo(675, 227, duration = 1)
     pg.click()
+    pg.screenshot("screenshots/6.png")
     time.sleep(1)
     pg.moveTo(847, 227, duration = 1)
     pg.click()
+    pg.screenshot("screenshots/7.png")
 
 #write caption
 def WriteCaption():
@@ -184,6 +193,7 @@ def WriteCaption():
     pg.typewrite(f"{random_caption}")
     logging.info({random_caption})
     time.sleep(1)
+    pg.screenshot("screenshots/captionWritten.png")
 
     # Write the hashtag
     pg.press("enter")
@@ -192,6 +202,7 @@ def WriteCaption():
     pg.moveTo(599, 548, duration=0)
     time.sleep(1.5)
     pg.click()
+    pg.screenshot("screenshots/hashtagWritten.png")
     
     # Write the hashtag2
     time.sleep(1)
@@ -200,6 +211,7 @@ def WriteCaption():
     pg.moveTo(599, 548, duration=0)
     time.sleep(1.5)
     pg.click()
+    pg.screenshot("screenshots/hashtagWritten2.png")
 
     # Write the hashtag3
     time.sleep(1)
@@ -208,6 +220,7 @@ def WriteCaption():
     pg.moveTo(599, 548, duration=0)
     time.sleep(1.5)
     pg.click()
+    pg.screenshot("screenshots/hashtagWritten3.png")
 
     # Write the disclaimer
     time.sleep(1)
@@ -215,11 +228,13 @@ def WriteCaption():
     time.sleep(0.5)
     pg.press("enter")
     pg.typewrite("This post was made and uploaded by a python bot :D")
+    pg.screenshot("screenshots/disclaimerWritten.png")
 
 #post meme
 def postMeme():
     pg.moveTo(840, 231, duration=0)
     pg.click()
+    pg.screenshot("screenshots/memeposted.png")
 
     #close window
     time.sleep(1)
@@ -229,6 +244,7 @@ def postMeme():
     pg.moveTo(1007, 19, duration=0)
     time.sleep(1)
     pg.click()
+    pg.screenshot("screenshots/windowClosed.png")
 
 #main code
 def main_sequence():
