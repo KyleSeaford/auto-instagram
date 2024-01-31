@@ -18,4 +18,3 @@ def findMouse():
 
 logging.info("Script started")
 findMouse()
-
