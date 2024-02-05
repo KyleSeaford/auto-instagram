@@ -33,14 +33,14 @@ def button():
     step2 = pg.locateOnScreen("steps/step2.png")
     pg.click(step2)
     logging.info('step2 done')
-    pg.screenshot("screenshots/step1.png")
+    pg.screenshot("screenshots/step2.png")
     time.sleep(wait)
 
     # step3 - select from computer
     step3 = pg.locateOnScreen("steps/step3.png")
     pg.click(step3)
     logging.info('step3 done')
-    pg.screenshot("screenshots/step1.png")
+    pg.screenshot("screenshots/step3.png")
     time.sleep(wait)
  
 
@@ -66,8 +66,21 @@ def meme():
         logging.info(f"Step 4 - Selected meme: {random_meme_name}")
         ChoseMeme(random_meme_name)
 
-# step5 - select meme
+
 def ChoseMeme(random_meme_name):
+    # step 5 - type address
+    step5 = pg.locateOnScreen("steps/step5.png")
+    pg.click(step5)
+    pg.screenshot("screenshots/.png") # find address bar
+    time.sleep(wait)
+    
+    pg.typewrite("C:\\Users\\win10_64\\Desktop\\memes") # type address
+    pg.press("enter")
+    logging.info('step5 done')
+    time.sleep(wait)
+
+
+
     print(random_meme_name)
 
 
