@@ -26,3 +26,4 @@ pyautogui.dragTo(100, 100, duration=1)
 
 pyautogui.screenshot('screenshot.png')
 
+pyautogui.press('enter')
