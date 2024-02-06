@@ -20,6 +20,7 @@ def openApp():
     webbrowser.open('https://www.instagram.com/')
     time.sleep(wait)
     pg.screenshot("screenshots/step0.png")
+    logging.info("step0 done - instagram opened")
     time.sleep(wait)
 
 def clickbutton(n):
@@ -58,14 +59,14 @@ def meme():
 
     random_meme_name = select_random_meme(meme_folder_path)
     if random_meme_name:
-        logging.info(f"step4 - Selected meme: {random_meme_name}")
+        logging.info(f"step4 done - Selected meme: {random_meme_name}")
         ChoseMeme(random_meme_name)
 
 
 def ChoseMeme(random_meme_name):
     # step 5 - get to address bar
     pg.hotkey('ctrl', 'l')                                           # jump to address bar
-    logging.info(f"step5 done")
+    logging.info(f"step5 done - address bar selected")
     time.sleep(short_wait)
     pg.screenshot(f"screenshots/step5.png")
     time.sleep(wait)
@@ -73,7 +74,7 @@ def ChoseMeme(random_meme_name):
     # step 6 - type address
     pg.typewrite("I:\\CODE\\auto-instergram\\memes")                 # types the address of where the memes are stored, different for each computer
     pg.press("enter")
-    logging.info('step6 done')
+    logging.info('step6 done - address typed and entered')
     time.sleep(short_wait)
     pg.screenshot("screenshots/step6.png")
     time.sleep(wait)
@@ -83,7 +84,7 @@ def ChoseMeme(random_meme_name):
         time.sleep(short_wait)
         pg.press("tab")                                             # navigates from the address bar to the file name bar                      
 
-    logging.info(f"step7 done")
+    logging.info(f"step7 done - tabbed to file name bar")
     time.sleep(short_wait)
     pg.screenshot(f"screenshots/step7.png")
     time.sleep(wait)
@@ -91,7 +92,7 @@ def ChoseMeme(random_meme_name):
     # step 8 - load meme
     pg.typewrite(random_meme_name)                                  # types the name of the meme
     pg.press("enter")
-    logging.info('step8 done')
+    logging.info('step8 done - meme loaded')
     pg.screenshot("screenshots/step8.png")
 
 # step 9 - click next and take too caption writing
@@ -189,7 +190,7 @@ def WriteCaption():
 
     random_caption = random.choice(captions)
     random_hashtags = [random.choice(hashtags) for _ in range(1, 4)]
-    logging.info("Choosing caption and hashtags")
+    logging.info("step12 done - Chosen caption and hashtags")
 
     # step13 - click caption box
     clickbutton(13)
@@ -205,8 +206,8 @@ def WriteCaption():
     # step15 - Write the hashtags
     for i, hashtag in enumerate(random_hashtags, 1):
         pg.typewrite(f"{hashtag} ")
-        logging.info({hashtag})
-        pg.screenshot(f"screenshots/step15{i}.png")
+        logging.info(f"step15{i} done - {hashtag}")
+        pg.screenshot(f"screenshots/step15_{i}.png")
         time.sleep(wait)
 
     # Press Enter to write the disclaimer on a new line
@@ -214,12 +215,13 @@ def WriteCaption():
     
     # step16 - Write the disclaimer
     pg.typewrite("This post was made and uploaded by a python bot :D")
-    pg.screenshot("screenshots/disclaimerWritten.png")
+    logging.info("step16 done - disclaimer written")
+    pg.screenshot("screenshots/step16.png")
 
 
 # step17 - post the meme
 def postMeme():
-    clickbutton(16)
+    clickbutton(17)
 
 """
 TO DO:
@@ -236,6 +238,7 @@ def main_sequence():
     meme()
     edit()
     WriteCaption()
+    postMeme()
     
 
 main_sequence()
