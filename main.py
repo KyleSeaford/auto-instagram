@@ -12,7 +12,7 @@ logging.basicConfig(level=logging.INFO,
 
 # set the wait time for the program
 wait = 1 
-short_wait = 0.5
+short_wait = wait / 2
 
 
 def openApp():
@@ -61,7 +61,6 @@ def meme():
         logging.info(f"step4 - Selected meme: {random_meme_name}")
         ChoseMeme(random_meme_name)
 
-# not tested below this point, need to have the correct locate images (step5, step6)
 
 def ChoseMeme(random_meme_name):
     # step 5 - get to address bar
@@ -95,31 +94,148 @@ def ChoseMeme(random_meme_name):
     logging.info('step8 done')
     pg.screenshot("screenshots/step8.png")
 
- 
+# step 9 - click next and take too caption writing
+# im not sure what step9 is doing, but it works so i don't want to mess with it. i might just be dumb and not counting properly
+# step10 is no cropping
+# step11 is no filter
 def edit():
-    clickbutton(9)
-    clickbutton(10)
-    clickbutton(11)
-    clickbutton(12)
+    for i in range(10, 12):
+        clickbutton(i)
 
 
+# step 12 - write caption
+def WriteCaption():
+    captions = [
+        "Bug squashed, another arises", 
+        "Risking it all with an update", 
+        "Break? Just switch code types", 
+        "Not a bug, a feature!", 
+        "When your code finally works on the first try!", 
+        "That moment you realize it's not a bug, just a feature", 
+        "Me, when I see a semicolon missing :o", 
+        "Sleep is for the weak; debugging is for the strong",
+        "When you finally fix that bug that's been bugging you for days",
+        "Coding is 10% writing code and 90% fixing bugs",
+        "When you finally understand recursion. Mind. Blown.",
+        "My code isn't messy; it's just creatively organized!",
+        "Sleep? I'll do that after this next commit.",
+        "Coffee: Fueling developers since the beginning of time.",
+        "I don't always test my code, but when I do, I do it in production.",
+        "When you're coding and you realize you've been talking to yourself for the past 20 minutes.",
+        "what do you mean, 'it works on my machine'?",
+        "how did this ever work?",
+        "I'm not anti-social; I'm just not user friendly.",
+        "I'm not lazy; I'm just on my energy saving mode.",
+        "Debugging: The art of finding a needle in a haystack"
+        "Code, coffee, repeat: The developer's mantra",
+        "In the world of coding, patience is a virtue",
+        "When in doubt, print it out: The coder's way",
+        "404: Sleep not found. Please debug and try again",
+        "Coding: Where the impossible becomes possible",
+        "The best error message is the one that never shows up",
+        "To err is human, to debug divine",
+        "Code like a butterfly, test like a bee",
+        "In the kingdom of code, the debugger is king",
+        "The only thing we have to fear is uncaught exceptions",
+        "Coding is thinking, not typing",
+        "The code is dark and full of errors",
+        "Keep calm and trust the debugger",
+        "Code it, break it, fix it, repeat",
+        "The closer you look, the less you see: The mystery of code",
+        "Coding: Where every character counts",
+        "May the source be with you: The coder's blessing",
+        "In the quest for perfection, we debug endlessly",
+        "Code: It's not a bug, it's an undocumented feature",
+        "Embracing the beauty of data chaos",
+        "Plot twist: Data speaks for itself",
+        "Visualizing the invisible: Data magic",
+        "In data we trust, in visualizations we marvel",
+        "Unveiling patterns, one data point at a time",
+        "When numbers become art: The power of visualization",
+        "Data whispers, visualizations shout",
+        "Lost in the scatter: Finding meaning in the chaos",
+        "A symphony of data points: Visualizing harmony",
+        "Where data and design dance together",
+        "The art of storytelling through data visualizations",
+        "Decoding the data: A visual journey",
+        "From raw data to visual poetry",
+        "Data dreams in technicolor: The magic of visualization",
+        "When dots connect: The power of visual narratives",
+        "Data alchemy: Turning numbers into gold",
+        "The language of data: Spoken in visuals",
+        "Unveiling the hidden: The art of data revelation",
+        "When data takes center stage: The visual spotlight",
+        "In the realm of visual insights: Where data comes to life"
+
+    ]
+    
+    hashtags = [
+        "#CodeHumor", "#GeekHumor", "#TechJokes", "#DevLife", 
+        "#ProgrammerLife", "#ProgrammingHumor", "#ProgrammingJokes", 
+        "#ProgrammerHumor", "#SoftwareDeveloper", "#SoftwareEngineer", 
+        "#SoftwareDevelopment", "#SoftwareEngineerLife", "#SoftwareEngineerProblems", 
+        "#SoftwareEngineerHumor", "#SoftwareEng" ,"#SoftwareEngineering", 
+        "#programming", "#joke", "#funny", "#coding", "#programmer", "#developer",         
+        "#codinglife", "#webdeveloper", "#webdevelopment", 
+        "#webdev", "#webdesign", "#webdesigner", "#webdesigning", 
+        "#webdesignlife", "#webdesignerlife", "#webdesigners", 
+        "#webdesignerslife", "#webdesignersofinstagram", "#webdesignersofinsta", 
+        "#webdesignersoftheworld", "#webdesignersoftheworld", "#webdesignersoftheworldunite",
+        "#computer", "#computers", "#computerscience", "#computersciencestudent",
+        "#python", "#pythonprogramming", "#pythonprogramminglanguage", "#pythonprogrammer",
+        "#code", "#coder", "#codingisfun", "#codingpics", "#c", "#csharp", "#csharpdeveloper",
+        "#meme", "#memes", "#memesdaily", "#memes4days", "#memes4life", "#memes4ever", "#memes4u"
+    ]
+
+    random_caption = random.choice(captions)
+    random_hashtags = [random.choice(hashtags) for _ in range(1, 4)]
+    logging.info("Choosing caption and hashtags")
+
+    # step13 - click caption box
+    clickbutton(13)
+
+    # step 14 - Write the caption
+    pg.typewrite(f"{random_caption}")
+    logging.info(f"step14 done - {random_caption}")
+    time.sleep(wait)
+
+    # Press Enter to write the hashtag on a new line
+    pg.press("enter")
+
+    # step15 - Write the hashtags
+    for i, hashtag in enumerate(random_hashtags, 1):
+        pg.typewrite(f"{hashtag} ")
+        logging.info({hashtag})
+        pg.screenshot(f"screenshots/step15{i}.png")
+        time.sleep(wait)
+
+    # Press Enter to write the disclaimer on a new line
+    pg.press("enter")
+    
+    # step16 - Write the disclaimer
+    pg.typewrite("This post was made and uploaded by a python bot :D")
+    pg.screenshot("screenshots/disclaimerWritten.png")
+
+
+# step17 - post the meme
+def postMeme():
+    clickbutton(16)
 
 """
 TO DO:
 - DRY = don't repeat yourself!!!!
 - make step3 work, comment on what and why it is not working next to it     - done/working
 - find the correct locate images for step5 and step6                        - done/working
-- test new functions and make sure they work                                -
-- continue with the rest of the steps                                       -
-- if i make all the images 1:1 i don't need to use clickbutton() for 11, 12 - testing      
+- continue with the rest of the steps                                       - 
+- if i make all the images 1:1 i don't need to use clickbutton() for 9, 10  - done/working
 """
 
 def main_sequence():
-    #openApp()
-    #Step123()
-    #meme()
-    time.sleep(4)
+    openApp()
+    Step123()
+    meme()
     edit()
+    WriteCaption()
     
 
 main_sequence()
