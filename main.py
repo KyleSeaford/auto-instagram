@@ -12,7 +12,7 @@ logging.basicConfig(level=logging.INFO,
 
 # set the wait time for the program
 wait = 1 
-
+short_wait = 0.5
 
 
 def openApp():
@@ -22,32 +22,23 @@ def openApp():
     pg.screenshot("screenshots/step0.png")
     time.sleep(wait)
 
-def button():
-    # step1 - create post button
-    step1 = pg.locateOnScreen("steps/step1.png")
+def clickbutton(n):
+    step1 = pg.locateOnScreen(f"steps/step{n}.png")
     pg.click(step1)
-    logging.info('step1 done')
-    pg.screenshot("screenshots/step1.png")
+    logging.info(f"step{n} done")
+    time.sleep(short_wait)
+    pg.screenshot(f"screenshots/step{n}.png")
     time.sleep(wait)
+    pass
 
-    # step2 - select post
-    step2 = pg.locateOnScreen("steps/step2.png")
-    pg.click(step2)
-    logging.info('step2 done')
-    pg.screenshot("screenshots/step2.png")
-    time.sleep(wait)
 
-    # step3 - select from computer
-    # this did not work, need to find a better way to do this. button image is probably bad                            
-    step3 = pg.locateOnScreen("steps/step3.png")
-    pg.click(step3)
-    logging.info('step3 done')
-    pg.screenshot("screenshots/step3.png")
-    time.sleep(wait)
- 
+# this does step 1, 2 and 3, fast and easy
+
+def Step123():
+    for i in range(1, 4):                                     
+        clickbutton(i)
 
 # I can't remember why step4 has 2 different functions, but is dose! :)
-
 # step4 - select a random meme
 def select_random_meme(folder_path):
     all_files = [f for f in os.listdir(folder_path) if os.path.isfile(os.path.join(folder_path, f))]
@@ -73,43 +64,62 @@ def meme():
 # not tested below this point, need to have the correct locate images (step5, step6)
 
 def ChoseMeme(random_meme_name):
-    # step 5 - type address
-    step5 = pg.locateOnScreen("steps/step5.png")
-    pg.click(step5)
-    pg.screenshot("screenshots/.png")                               # find address bar
+    # step 5 - get to address bar
+    pg.hotkey('ctrl', 'l')                                           # jump to address bar
+    logging.info(f"step5 done")
+    time.sleep(short_wait)
+    pg.screenshot(f"screenshots/step5.png")
     time.sleep(wait)
-    
-    pg.typewrite("C:\\Users\\win10_64\\Desktop\\memes")             # types the address of where the memes are stored
+ 
+    # step 6 - type address
+    pg.typewrite("I:\\CODE\\auto-instergram\\memes")                 # types the address of where the memes are stored, different for each computer
     pg.press("enter")
-    logging.info('step5 done - typed address')
-    time.sleep(wait)
-
-    # step 6 - select meme
-    step6 = pg.locateOnScreen("steps/step6.png")                    # bar at bottom of window
-    pg.click(step6)
-    logging.info('step6 done- bar at bottom of window')
+    logging.info('step6 done')
+    time.sleep(short_wait)
     pg.screenshot("screenshots/step6.png")
     time.sleep(wait)
+
+    # step 7 - select meme
+    for i in range(5):
+        time.sleep(short_wait)
+        pg.press("tab")                                             # navigates from the address bar to the file name bar                      
+
+    logging.info(f"step7 done")
+    time.sleep(short_wait)
+    pg.screenshot(f"screenshots/step7.png")
+    time.sleep(wait)
+
+    # step 8 - load meme
     pg.typewrite(random_meme_name)                                  # types the name of the meme
     pg.press("enter")
-    logging.info('step6_5 done - meme selected')
-    pg.screenshot("screenshots/step6_5.png")
+    logging.info('step8 done')
+    pg.screenshot("screenshots/step8.png")
 
+ 
+def edit():
+    clickbutton(9)
+    clickbutton(10)
+    clickbutton(11)
+    clickbutton(12)
 
 
 
 """
 TO DO:
-- make step3 work, comment on what and why it is not working next to it
-- find the correct locate images for step5 and step6
-- test new functions and make sure they work
-- continue with the rest of the steps
+- DRY = don't repeat yourself!!!!
+- make step3 work, comment on what and why it is not working next to it     - done/working
+- find the correct locate images for step5 and step6                        - done/working
+- test new functions and make sure they work                                -
+- continue with the rest of the steps                                       -
+- if i make all the images 1:1 i don't need to use clickbutton() for 11, 12 - testing      
 """
 
 def main_sequence():
-    openApp()
-    button()
+    #openApp()
+    #Step123()
     #meme()
+    time.sleep(4)
+    edit()
     
 
 main_sequence()
