@@ -5,6 +5,8 @@ import webbrowser
 import os
 import random
 
+from email import sendlogtokyle
+
 # set logging 
 logging.basicConfig(level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
@@ -226,10 +228,6 @@ def postMeme():
 """
 TO DO:
 - DRY = don't repeat yourself!!!!
-- make step3 work, comment on what and why it is not working next to it     - done/working
-- find the correct locate images for step5 and step6                        - done/working
-- continue with the rest of the steps                                       - 
-- if i make all the images 1:1 i don't need to use clickbutton() for 9, 10  - done/working
 """
 
 def main_sequence():
@@ -239,6 +237,9 @@ def main_sequence():
     edit()
     WriteCaption()
     postMeme()
+    logging.info("All steps done - meme posted")
+    sendlogtokyle()
+    
     
 
 main_sequence()
