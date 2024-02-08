@@ -5,7 +5,7 @@ import webbrowser
 import os
 import random
 
-from email import sendlogtokyle
+#from email import sendlogtokyle
 
 # set logging 
 logging.basicConfig(level=logging.INFO,
@@ -190,9 +190,14 @@ def WriteCaption():
         "#meme", "#memes", "#memesdaily", "#memes4days", "#memes4life", "#memes4ever", "#memes4u"
     ]
 
+    # step12 - Choose a random caption and hashtags
     random_caption = random.choice(captions)
-    random_hashtags = [random.choice(hashtags) for _ in range(1, 4)]
-    logging.info("step12 done - Chosen caption and hashtags")
+
+    random_hashtags = set()
+    while len(random_hashtags) < 6:
+        hashtag = random.choice(hashtags)
+        random_hashtags.add(hashtag)
+        logging.info("step12 done - Chosen caption and hashtags")
 
     # step13 - click caption box
     clickbutton(13)
@@ -236,9 +241,9 @@ def main_sequence():
     meme()
     edit()
     WriteCaption()
-    postMeme()
+    #postMeme()
     logging.info("All steps done - meme posted")
-    sendlogtokyle()
+    #sendlogtokyle()
     
     
 
