@@ -1,3 +1,6 @@
+# on the server ive had to change some of the script due to the locateOnScreen not working, so i had to change it to clickbutton
+# it is still more officiant than the previous version, but not what i wanted.
+
 import pyautogui as pg 
 import time
 import logging
@@ -246,5 +249,4 @@ def main_sequence():
     #sendlogtokyle()
     
     
-
 main_sequence()
