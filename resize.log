@@ -1,10 +1,26 @@
-2024-02-06 20:25:25,207 - CRITICAL - Starting image resize and center
-2024-02-06 20:25:25,299 - INFO - Resized and centered: 331.png
-2024-02-06 20:25:25,348 - INFO - Resized and centered: 332.png
-2024-02-06 20:25:25,471 - INFO - Resized and centered: 334.png
-2024-02-06 20:25:25,790 - INFO - Resized and centered: 335.png
-2024-02-06 20:25:26,091 - INFO - Resized and centered: 336.png
-2024-02-06 20:25:26,187 - INFO - Resized and centered: 345.png
-2024-02-06 20:25:26,727 - INFO - Resized and centered: 353.png
-2024-02-06 20:25:26,793 - INFO - Resized and centered: 422.png
-2024-02-06 20:25:26,795 - CRITICAL - Images resized and centered successfully.
+2024-02-12 18:07:28,027 - CRITICAL - Starting PNG to MP4 conversion
+2024-02-12 18:07:28,054 - DEBUG - STREAM b'IHDR' 16 13
+2024-02-12 18:07:28,054 - DEBUG - STREAM b'IDAT' 41 65536
+2024-02-12 18:07:28,309 - INFO - Converted 331.png to new_memes\331.mp4
+2024-02-12 18:07:28,309 - DEBUG - STREAM b'IHDR' 16 13
+2024-02-12 18:07:28,309 - DEBUG - STREAM b'IDAT' 41 65536
+2024-02-12 18:07:28,464 - INFO - Converted 332.png to new_memes\332.mp4
+2024-02-12 18:07:28,465 - DEBUG - STREAM b'IHDR' 16 13
+2024-02-12 18:07:28,465 - DEBUG - STREAM b'IDAT' 41 65536
+2024-02-12 18:07:28,652 - INFO - Converted 334.png to new_memes\334.mp4
+2024-02-12 18:07:28,653 - DEBUG - STREAM b'IHDR' 16 13
+2024-02-12 18:07:28,653 - DEBUG - STREAM b'IDAT' 41 65536
+2024-02-12 18:07:28,831 - INFO - Converted 335.png to new_memes\335.mp4
+2024-02-12 18:07:28,832 - DEBUG - STREAM b'IHDR' 16 13
+2024-02-12 18:07:28,832 - DEBUG - STREAM b'IDAT' 41 65536
+2024-02-12 18:07:28,992 - INFO - Converted 336.png to new_memes\336.mp4
+2024-02-12 18:07:28,993 - DEBUG - STREAM b'IHDR' 16 13
+2024-02-12 18:07:28,993 - DEBUG - STREAM b'IDAT' 41 65536
+2024-02-12 18:07:29,210 - INFO - Converted 345.png to new_memes\345.mp4
+2024-02-12 18:07:29,210 - DEBUG - STREAM b'IHDR' 16 13
+2024-02-12 18:07:29,211 - DEBUG - STREAM b'IDAT' 41 65536
+2024-02-12 18:07:29,385 - INFO - Converted 353.png to new_memes\353.mp4
+2024-02-12 18:07:29,385 - DEBUG - STREAM b'IHDR' 16 13
+2024-02-12 18:07:29,386 - DEBUG - STREAM b'IDAT' 41 63820
+2024-02-12 18:07:29,513 - INFO - Converted 422.png to new_memes\422.mp4
+2024-02-12 18:07:29,513 - CRITICAL - PNG to MP4 conversion completed successfully
