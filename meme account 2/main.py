@@ -2,6 +2,9 @@
 # on the server ive had to change some of the script due to the locateOnScreen not working, so i had to change it to clickbutton
 # it is still more officiant than the previous version, but not what i wanted.
 
+# https://www.instagram.com/gigglegen/ is the account
+
+
 import pyautogui as pg 
 import time
 import logging
@@ -221,8 +224,12 @@ TO DO:
 - memes to 1080x1080 (ResizeMeme.py) make sure to change the folder path
 - convert pngs to mp4s (ChangeTOVid.py) make sure to change the folder path
 
-- make new account for memes 
 - make new vm for this account, clone the other one
+- on vm download the memes
+- on vm add thing to bookmark bar 
+
+- set a task to run at same time as other account
+
 - while server on, convert pngs to mp4s on other account
 """
 
