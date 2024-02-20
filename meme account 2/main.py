@@ -220,13 +220,13 @@ def postMeme():
 TO DO:
 - DRY = don't repeat yourself!!!!
 
-- new memes https://archive.org/download/HugeMemePack download and put in memes folder
-- memes to 1080x1080 (ResizeMeme.py) make sure to change the folder path
-- convert pngs to mp4s (ChangeTOVid.py) make sure to change the folder path
-
 - make new vm for this account, clone the other one
 - on vm download the memes
 - on vm add thing to bookmark bar 
+
+- new memes https://archive.org/download/HugeMemePack download and put in memes folder
+- memes to 1080x1080 (ResizeMeme.py) make sure to change the folder path
+- convert pngs to mp4s (ChangeTOVid.py) make sure to change the folder path
 
 - set a task to run at same time as other account
 
