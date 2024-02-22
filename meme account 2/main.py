@@ -53,7 +53,7 @@ def Step123():
 def select_random_meme(folder_path):
     all_files = [f for f in os.listdir(folder_path) if os.path.isfile(os.path.join(folder_path, f))]
     
-    image_files = [f for f in all_files if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
+    image_files = [f for f in all_files if f.lower().endswith(('.png', '.jpg', '.jpeg' , '.mp4'))]
     
     if not image_files:
         logging.error("No meme images found in the folder.")
