@@ -220,17 +220,17 @@ def postMeme():
 TO DO:
 - DRY = don't repeat yourself!!!!
 
-- make new vm for this account, clone the other one
-- on vm download the memes
-- on vm add thing to bookmark bar 
+- make new vm for this account, clone the other one  - done
+- on vm download the memes - done
+- on vm add thing to bookmark bar - done 
 
-- new memes https://archive.org/download/HugeMemePack download and put in memes folder
-- memes to 1080x1080 (ResizeMeme.py) make sure to change the folder path
-- convert pngs to mp4s (ChangeTOVid.py) make sure to change the folder path
+- new memes https://drive.google.com/drive/folders/1UXKquhbrh_aC48FeqY60TW6YXls9gAMD download and put in memes folder - done
+- memes to 1080x1080 (ResizeMeme.py) make sure to change the folder path 
+- convert pngs to mp4s (ChangeTOVid.py) make sure to change the folder path 
 
-- set a task to run at same time as other account
+- set a task to run at same time as other account - done 
 
-- while server on, convert pngs to mp4s on other account
+- while server on, convert pngs to mp4s on other account -- done
 """
 
 def main_sequence():
