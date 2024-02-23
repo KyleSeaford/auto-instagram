@@ -224,7 +224,8 @@ TO DO:
 - on vm download the memes - done
 - on vm add thing to bookmark bar - done 
 
-- new memes https://drive.google.com/drive/folders/1UXKquhbrh_aC48FeqY60TW6YXls9gAMD download and put in memes folder - done
+- new memes https://github.com/Pumpkintitan/Le-Monke/tree/master/memes download and put in memes folder
+- make sure to change the folder path in the code 
 - memes to 1080x1080 (ResizeMeme.py) make sure to change the folder path 
 - convert pngs to mp4s (ChangeTOVid.py) make sure to change the folder path 
 
