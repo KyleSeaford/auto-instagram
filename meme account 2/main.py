@@ -235,14 +235,18 @@ TO DO:
 """
 
 def main_sequence():
-    openApp()
-    Step123()
-    meme()
-    edit()
-    WriteCaption()
-    #postMeme()
-    logging.info("All steps done - meme posted")
-    #sendlogtokyle()
+    try:
+        openApp()
+        Step123()
+        meme()
+        edit()
+        WriteCaption()
+        #postMeme()
+        logging.info("All steps done - meme posted")
+        #sendlogtokyle()
+    except Exception as e:
+        logging.error(f"An error occurred: {e}")
+    
     
     
 main_sequence()
