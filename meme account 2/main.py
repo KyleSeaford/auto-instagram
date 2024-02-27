@@ -16,7 +16,7 @@ import random
 
 # set logging 
 logging.basicConfig(level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
+    format='%(asctime)s - %(levelname)s o- %(message)s',
     filename='AutoIg2.log', filemode='w')
 
 # set the wait time for the program
@@ -220,18 +220,11 @@ def postMeme():
 TO DO:
 - DRY = don't repeat yourself!!!!
 
-- make new vm for this account, clone the other one  - done
-- on vm download the memes - done
-- on vm add thing to bookmark bar - done 
+- test if try exept works
 
-- new memes https://github.com/Pumpkintitan/Le-Monke/tree/master/memes download and put in memes folder
-- make sure to change the folder path in the code 
-- memes to 1080x1080 (ResizeMeme.py) make sure to change the folder path 
-- convert pngs to mp4s (ChangeTOVid.py) make sure to change the folder path 
-
-- set a task to run at same time as other account - done 
-
-- while server on, convert pngs to mp4s on other account -- done
+- find out why it didnt run today 
+- find out why this one dost work
+- make tiktok script work 
 """
 
 def main_sequence():
