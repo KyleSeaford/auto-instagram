@@ -180,7 +180,7 @@ def WriteCaption():
     random_caption = random.choice(captions)
 
     random_hashtags = set()
-    while len(random_hashtags) < 6:
+    while len(random_hashtags) < 20:
         hashtag = random.choice(hashtags)
         random_hashtags.add(hashtag)
         logging.info("step12 done - Chosen caption and hashtags")
